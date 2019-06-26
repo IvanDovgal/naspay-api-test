@@ -45,12 +45,12 @@ public class NaspayApiClientImplTest extends SetupTest {
 
     @Test
     public void getTransactionDetails() {
-        assertNotNull(client.getTransactionDetails("dbb46d0c4cfc4cdd9f923aa229106287"));
+        assertNotNull(client.getTransactionDetails(TX_ID));
     }
 
     @Test
     public void getTransactionState() {
-        assertEquals(client.getTransactionState("dbb46d0c4cfc4cdd9f923aa229106287"), NaspayApiClient.TransactionState.AUTHORIZED);
+        assertEquals(client.getTransactionState(TX_ID), NaspayApiClient.TransactionState.AUTHORIZED);
         assertThrows(TxNotFoundException.class, () -> {
             client.getTransactionState("f33ae3006b074e649c1095ff8fb35e93");
         });
